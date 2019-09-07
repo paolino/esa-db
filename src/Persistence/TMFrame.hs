@@ -29,7 +29,7 @@ data TMFrame  = TMFrame
     , frameMCFC :: Word8 -- ^ 
     , frameVCFC :: Word8 -- ^ 
     }
-  deriving (Generic)
+  deriving (Generic, Show)
 
 type TMFrameStore = [TMFrame] -> IO ()
 
