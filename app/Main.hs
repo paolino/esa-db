@@ -23,8 +23,11 @@ testApp = do
 main = do
     logOptions <- logOptionsHandle stderr True
     (termLog, killTL) <- newLogFunc logOptions
-    (logDB, killDB) <- logToSQLiteDatabase "test.db"
+    (logDB, killDB) <- logToSQLiteDatabase "event.db"
+    ((storeFrame :: _, retrieveFrames), killFrameDB) <- accessTMFrameDatabase  "frames.db"
     runRIO (Logging termLog ()) $ prependLogger logDB testApp
     killDB
     killTL
+    killFrameDB
+
 

@@ -30,6 +30,8 @@ dependencies:
 - text
 - directory
 - time
+- QuickCheck
+- conduit
 
 library:
   source-dirs: src

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: dd0d6c99bf362d688f456f82a0dd6287cbae6908a9f5b54531924315900e3dba
+-- hash: 47c87da25495dad04cd7b58b7ae3bd377bb01cb9fee532f9fd4dc9d4207a4a73
 
 name:           esa-db
 version:        0.1.0.0
@@ -29,12 +29,15 @@ library
   exposed-modules:
       Persistence.Db
       Persistence.EventLog
+      Persistence.TMFrame
   other-modules:
       Paths_esa_db
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
+    , conduit
     , directory
     , mtl
     , random
@@ -54,7 +57,9 @@ executable esa-db-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
+    , conduit
     , directory
     , esa-db
     , mtl
@@ -76,7 +81,9 @@ test-suite esa-db-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
+    , conduit
     , directory
     , esa-db
     , mtl
